@@ -4,6 +4,7 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { BrowserRouter } from 'react-router-dom';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -22,7 +23,7 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
-      />
+        />
       <Tabs.Screen
         name="explore"
         options={{
@@ -31,7 +32,16 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
         }}
-      />
+        />
+      <Tabs.Screen
+        name="mypage"
+        options={{
+          title: 'My Page',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          ),
+        }}
+        />
     </Tabs>
   );
 }
